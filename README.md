@@ -17,12 +17,15 @@ note: it will run 3 cases inside folder LoginPage and create report task1.html
   Run through terminal
   
     maestro test android/test/DiaryPage/createNewDiary.yaml --format html && mv report.html task2.html
-note: it will run createNewDiary.yaml and create report task2.html
+note: 
+- it will run createNewDiary.yaml and create report task2.html
+- screenshot will be saved in root folder named beforeSubmission.png and afterSubmission.png
+
 
   ## task 3
   Run through terminal
   
-     maestro test android/test/HomePage/monthSelector.yaml --format html && mv report.html task3.html
+      maestro test android/test/HomePage/monthSelector.yaml --format html && mv report.html task3.html
 note: it will run monthSelector.yaml and create report task3.html
 
 ## Test Report
