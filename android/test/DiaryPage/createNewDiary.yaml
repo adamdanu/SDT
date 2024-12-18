@@ -1,0 +1,53 @@
+appId: com.itsbgold.feelio
+---
+#load variable
+- runScript: ../../pages/DiaryPage/diary.js
+- runScript: getCurrentMonth.js
+
+#login
+- runFlow: ../LoginPage/loginSuccess.yaml
+#- launchApp
+#- repeat:
+#    times: 4
+#    commands:
+#      - tapOn: "1"
+
+#take screenshot home before submission
+- takeScreenshot:
+    path: beforeSubmission
+
+#Open diary creation page
+- tapOn:
+    point: "50%,85%"
+
+# confirm current state on "note" screen
+- assertVisible: ${output.diary.diaryPageTitle}
+
+#filling the diary
+- assertVisible: ${output.diary.title}
+- assertVisible: ${output.diary.text}
+- tapOn:
+    point: "50%,23%"
+- inputText: '${output.currentMonth} Diary'
+#- hideKeyboard
+- tapOn:
+    point: "50%,38%"
+- inputText: 'This is diary'
+#- hideKeyboard
+
+#save diary
+#- assertVisible: ${output.diary.buttonSave}
+- doubleTapOn: 
+    point: "89%,8%"
+
+
+#makesure diary created
+#- assertVisible: ${output.diary.inputTitle}
+- assertVisible: '${output.currentMonth} Diary'
+
+#take screenshot home after submission
+- takeScreenshot:
+    path: afterSubmission
+
+
+

@@ -1,0 +1,21 @@
+appId: com.itsbgold.feelio
+---
+
+- launchApp
+- repeat:
+    times: 4
+    commands:
+      - tapOn: "1"
+
+- assertVisible:
+    text: "December"
+    enabled: true
+- assertVisible: "Title december"
+- assertNotVisible: "Title january"
+
+- tapOn: "January"
+- assertVisible:
+    text: "January"
+    enabled: true
+- assertVisible: "Title january"
+- assertNotVisible: "Title december"

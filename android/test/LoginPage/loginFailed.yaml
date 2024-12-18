@@ -1,0 +1,34 @@
+appId: com.itsbgold.feelio
+---
+
+#load variable
+- runScript: ../../pages/LoginPage/login.js
+- runScript: ../../pages/LoginPage/password.js
+
+#run register so every case do not need to wait result from other case
+- runFlow: register.yaml
+
+
+#launching app
+- launchApp
+
+#input correct pin
+#confirm pin
+- assertVisible: ${output.password.pinConfirmation}
+- repeat:
+    times: 4
+    commands:
+      - tapOn: ${output.password.wrongNumber}
+    
+
+#check error message shown for incorrect pin
+- assertVisible: ${output.password.loginFailPopupTitle}
+- assertVisible: ${output.password.loginFailPopupSubTitle}
+
+#close Failed popup
+- tapOn: ${output.password.okPopupButton}
+
+#make sure back to input pin
+- assertVisible: ${output.password.pinConfirmation}
+
+- stopApp

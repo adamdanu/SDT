@@ -1,0 +1,35 @@
+appId: com.itsbgold.feelio
+---
+#clearing appstate
+- clearState
+
+#load variable
+- runScript: ../../pages/LoginPage/login.js
+- runScript: ../../pages/LoginPage/password.js
+
+#launching app
+- launchApp
+
+#register process
+- assertVisible: ${output.login.pageTitle}
+- assertVisible: ${output.login.pageSubTitle}
+- tapOn: ${output.login.inputUsernameField}
+- inputText: ${output.login.inputTextUsername}
+- tapOn: ${output.login.inputProceedButton}
+
+#input pin
+- assertVisible: ${output.password.createPinTitle}
+- repeat:
+    times: 4
+    commands:
+      - tapOn: ${output.password.number}
+    
+
+#confirm pin
+- assertVisible: ${output.password.pinConfirmation}
+- repeat:
+    times: 4
+    commands:
+      - tapOn: ${output.password.number}
+
+- stopApp
