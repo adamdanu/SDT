@@ -1,7 +1,9 @@
 <h1 align="left">Automation Test</h1>
 
 ## Requirements
-   installed feelio app on emulator
+   1. Install [Maestro](https://maestro.mobile.dev/getting-started/installing-maestro)
+   2. Install [VS Code](https://code.visualstudio.com/)
+   3. installed [feelio](https://github.com/baqx/feelio/) app on emulator
    
    change directory to stored automation script via terminal
 ## How to run
